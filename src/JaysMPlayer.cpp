@@ -1,4 +1,5 @@
 #include "JaysMPlayer.h"
+#include "ffmpeg_core.h"
 
 JaysMPlayer::JaysMPlayer(QWidget *parent)
 	: QMainWindow(parent)
@@ -15,5 +16,30 @@ JaysMPlayer::~JaysMPlayer()
 
 void JaysMPlayer::callback_showMsg()
 {
-	ui.textEdit_ffmpegInfo->setText("Hello World");
+	char *infostr = NULL;
+	infostr = configurationinfo();
+	ui.textEdit_ffmpegInfo->insertPlainText("\n<<Configuration>>\n%s");
+	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
+	free(infostr);
+
+	infostr = urlprotocolinfo();
+	ui.textEdit_ffmpegInfo->insertPlainText("\n<<URLProtocol>>\n%s");
+	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
+	free(infostr);
+
+	infostr = avformatinfo();
+	ui.textEdit_ffmpegInfo->insertPlainText("\n<<AVFormat>>\n%s");
+	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
+	free(infostr);
+
+	infostr = avcodecinfo();
+	ui.textEdit_ffmpegInfo->insertPlainText("\n<<AVCodec>>\n%s");
+	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
+	free(infostr);
+
+	infostr = avfilterinfo();
+	ui.textEdit_ffmpegInfo->insertPlainText("\n<<AVFilter>>\n%s");
+	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
+	free(infostr);
 }
+

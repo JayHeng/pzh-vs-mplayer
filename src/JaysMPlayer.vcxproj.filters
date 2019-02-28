@@ -28,12 +28,21 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Source Files\ffmpeg">
+      <UniqueIdentifier>{40f3aed4-437e-42a1-892f-f9ebc421d9fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ffmpeg\lib">
+      <UniqueIdentifier>{085c4e15-004b-4139-9f86-8cb363d90be6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JaysMPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ffmpeg_core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,5 +60,86 @@
     <QtRcc Include="JaysMPlayer.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ffmpeg_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="middleware\ffmpeg\lib\avcodec.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\avdevice.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\avfilter.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\avformat.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\avutil.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libavcodec.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libavdevice.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libavfilter.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libavformat.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libavutil.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libpostproc.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libswresample.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\libswscale.dll.a">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\postproc.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\swresample.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\ffmpeg\lib\swscale.lib">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="middleware\ffmpeg\lib\avcodec-58.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
+    <None Include="middleware\ffmpeg\lib\avdevice-58.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
+    <None Include="middleware\ffmpeg\lib\avfilter-7.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
+    <None Include="middleware\ffmpeg\lib\avformat-58.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
+    <None Include="middleware\ffmpeg\lib\avutil-56.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
+    <None Include="middleware\ffmpeg\lib\postproc-55.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
+    <None Include="middleware\ffmpeg\lib\swresample-3.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
+    <None Include="middleware\ffmpeg\lib\swscale-5.def">
+      <Filter>Source Files\ffmpeg\lib</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -9,7 +9,11 @@ class JaysMPlayer : public QMainWindow
 
 public:
 	JaysMPlayer(QWidget *parent = Q_NULLPTR);
+	~JaysMPlayer();
 
 private:
 	Ui::JaysMPlayerClass ui;
+
+private slots:
+	void callback_showMsg();
 };

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'JaysMPlayer.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.1
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,6 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
@@ -27,6 +28,7 @@ public:
     QWidget *centralWidget;
     QLabel *label_ffmpegInfo;
     QTextEdit *textEdit_ffmpegInfo;
+    QPushButton *pushButton_ffmpegInfo;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -34,26 +36,29 @@ public:
     void setupUi(QMainWindow *JaysMPlayerClass)
     {
         if (JaysMPlayerClass->objectName().isEmpty())
-            JaysMPlayerClass->setObjectName(QString::fromUtf8("JaysMPlayerClass"));
+            JaysMPlayerClass->setObjectName(QStringLiteral("JaysMPlayerClass"));
         JaysMPlayerClass->resize(600, 400);
         centralWidget = new QWidget(JaysMPlayerClass);
-        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
         label_ffmpegInfo = new QLabel(centralWidget);
-        label_ffmpegInfo->setObjectName(QString::fromUtf8("label_ffmpegInfo"));
-        label_ffmpegInfo->setGeometry(QRect(40, 20, 71, 16));
+        label_ffmpegInfo->setObjectName(QStringLiteral("label_ffmpegInfo"));
+        label_ffmpegInfo->setGeometry(QRect(40, 10, 71, 16));
         textEdit_ffmpegInfo = new QTextEdit(centralWidget);
-        textEdit_ffmpegInfo->setObjectName(QString::fromUtf8("textEdit_ffmpegInfo"));
+        textEdit_ffmpegInfo->setObjectName(QStringLiteral("textEdit_ffmpegInfo"));
         textEdit_ffmpegInfo->setGeometry(QRect(30, 40, 541, 281));
+        pushButton_ffmpegInfo = new QPushButton(centralWidget);
+        pushButton_ffmpegInfo->setObjectName(QStringLiteral("pushButton_ffmpegInfo"));
+        pushButton_ffmpegInfo->setGeometry(QRect(120, 10, 75, 23));
         JaysMPlayerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(JaysMPlayerClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 600, 21));
         JaysMPlayerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(JaysMPlayerClass);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         JaysMPlayerClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(JaysMPlayerClass);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setObjectName(QStringLiteral("statusBar"));
         JaysMPlayerClass->setStatusBar(statusBar);
 
         retranslateUi(JaysMPlayerClass);
@@ -65,6 +70,7 @@ public:
     {
         JaysMPlayerClass->setWindowTitle(QApplication::translate("JaysMPlayerClass", "JaysMPlayer", nullptr));
         label_ffmpegInfo->setText(QApplication::translate("JaysMPlayerClass", "FFmpeg Info:", nullptr));
+        pushButton_ffmpegInfo->setText(QApplication::translate("JaysMPlayerClass", "Show", nullptr));
     } // retranslateUi
 
 };

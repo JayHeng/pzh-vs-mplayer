@@ -57,6 +57,9 @@
     <ClCompile Include="mplayer\mp_sdl_play.cpp">
       <Filter>Source Files\mplayer</Filter>
     </ClCompile>
+    <ClCompile Include="mplayer\mp_ffmpeg_decode.cpp">
+      <Filter>Source Files\mplayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="JaysMPlayer.h">
@@ -74,16 +77,13 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ffmpeg_core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sdl_core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="mplayer\mp_ffmpeg_info.h">
       <Filter>Source Files\mplayer</Filter>
     </ClInclude>
     <ClInclude Include="mplayer\mp_sdl_play.h">
+      <Filter>Source Files\mplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="mplayer\mp_ffmpeg_decode.h">
       <Filter>Source Files\mplayer</Filter>
     </ClInclude>
   </ItemGroup>

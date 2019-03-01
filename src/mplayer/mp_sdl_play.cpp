@@ -38,7 +38,7 @@ int refresh_video(void *opaque) {
 	return 0;
 }
 
-int sdl_play_yuv(char *mediaFilePath)
+int sdl_play_yuv(char *mediaFileIn)
 {
 	if (SDL_Init(SDL_INIT_VIDEO)) {
 		printf("Could not initialize SDL - %s\n", SDL_GetError());
@@ -65,7 +65,7 @@ int sdl_play_yuv(char *mediaFilePath)
 
 	FILE *fp = NULL;
 	//fp = fopen("test_yuv420p_320x180.yuv", "rb+");
-	fp = fopen(mediaFilePath, "rb+");
+	fp = fopen(mediaFileIn, "rb+");
 
 	if (fp == NULL) {
 		printf("cannot open this file\n");

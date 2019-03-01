@@ -33,7 +33,7 @@
       <x>30</x>
       <y>40</y>
       <width>541</width>
-      <height>281</height>
+      <height>231</height>
      </rect>
     </property>
    </widget>
@@ -48,6 +48,55 @@
     </property>
     <property name="text">
      <string>Show</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_mediaPlay">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>320</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Play</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sdlAction">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>290</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SDL Action:</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_browseFile">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>320</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_showFilePath">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>320</y>
+      <width>371</width>
+      <height>21</height>
+     </rect>
     </property>
    </widget>
   </widget>

@@ -34,6 +34,12 @@
     <Filter Include="Source Files\ffmpeg\lib">
       <UniqueIdentifier>{085c4e15-004b-4139-9f86-8cb363d90be6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\sdl">
+      <UniqueIdentifier>{d3e276a2-21ae-4442-98e4-f7a1b4d3f820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sdl\lib">
+      <UniqueIdentifier>{aff5f603-882f-44e4-bf63-6bf0861f31cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,6 +49,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ffmpeg_core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sdl_core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ffmpeg_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdl_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -114,6 +126,12 @@
     </Library>
     <Library Include="middleware\ffmpeg\lib\swscale.lib">
       <Filter>Source Files\ffmpeg\lib</Filter>
+    </Library>
+    <Library Include="middleware\sdl\lib\x64\SDL2.lib">
+      <Filter>Source Files\sdl\lib</Filter>
+    </Library>
+    <Library Include="middleware\sdl\lib\x64\SDL2main.lib">
+      <Filter>Source Files\sdl\lib</Filter>
     </Library>
   </ItemGroup>
   <ItemGroup>

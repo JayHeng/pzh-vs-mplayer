@@ -86,7 +86,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(ProjectDir)\middleware\ffmpeg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(ProjectDir)\middleware\ffmpeg\include;$(ProjectDir)\middleware\sdl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -102,7 +102,7 @@
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
-      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(ProjectDir)\middleware\ffmpeg\include</IncludePath>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(ProjectDir)\middleware\ffmpeg\include;$(ProjectDir)\middleware\sdl\include</IncludePath>
       <Define>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
     </QtMoc>
     <QtUic>
@@ -118,6 +118,7 @@
     <ClCompile Include="ffmpeg_core.cpp" />
     <ClCompile Include="JaysMPlayer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sdl_core.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="JaysMPlayer.h" />
@@ -130,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ffmpeg_core.h" />
+    <ClInclude Include="sdl_core.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="middleware\ffmpeg\lib\avcodec.lib" />
@@ -148,6 +150,8 @@
     <Library Include="middleware\ffmpeg\lib\postproc.lib" />
     <Library Include="middleware\ffmpeg\lib\swresample.lib" />
     <Library Include="middleware\ffmpeg\lib\swscale.lib" />
+    <Library Include="middleware\sdl\lib\x64\SDL2.lib" />
+    <Library Include="middleware\sdl\lib\x64\SDL2main.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="middleware\ffmpeg\lib\avcodec-58.def" />

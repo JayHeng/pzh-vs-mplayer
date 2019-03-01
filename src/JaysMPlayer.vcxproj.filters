@@ -40,6 +40,9 @@
     <Filter Include="Source Files\sdl\lib">
       <UniqueIdentifier>{aff5f603-882f-44e4-bf63-6bf0861f31cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\mplayer">
+      <UniqueIdentifier>{ad184e4d-3d92-46e2-a640-8aa89b13cc5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,11 +51,11 @@
     <ClCompile Include="JaysMPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ffmpeg_core.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="mplayer\mp_ffmpeg_info.cpp">
+      <Filter>Source Files\mplayer</Filter>
     </ClCompile>
-    <ClCompile Include="sdl_core.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="mplayer\mp_sdl_play.cpp">
+      <Filter>Source Files\mplayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="sdl_core.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mplayer\mp_ffmpeg_info.h">
+      <Filter>Source Files\mplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="mplayer\mp_sdl_play.h">
+      <Filter>Source Files\mplayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

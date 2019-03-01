@@ -1,8 +1,8 @@
 #include "JaysMPlayer.h"
 #include "QDir"
 #include "QFileDialog"
-#include "ffmpeg_core.h"
-#include "sdl_core.h"
+#include "mp_ffmpeg_info.h"
+#include "mp_sdl_play.h"
 
 JaysMPlayer::JaysMPlayer(QWidget *parent)
 	: QMainWindow(parent)
@@ -21,31 +21,12 @@ JaysMPlayer::~JaysMPlayer()
 
 void JaysMPlayer::callback_showMsg()
 {
-	char *infostr = NULL;
-	infostr = configurationinfo();
-	ui.textEdit_ffmpegInfo->insertPlainText("\n<<Configuration>>\n%s");
-	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
-	free(infostr);
-
-	infostr = urlprotocolinfo();
-	ui.textEdit_ffmpegInfo->insertPlainText("\n<<URLProtocol>>\n%s");
-	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
-	free(infostr);
-
-	infostr = avformatinfo();
-	ui.textEdit_ffmpegInfo->insertPlainText("\n<<AVFormat>>\n%s");
-	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
-	free(infostr);
-
-	infostr = avcodecinfo();
-	ui.textEdit_ffmpegInfo->insertPlainText("\n<<AVCodec>>\n%s");
-	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
-	free(infostr);
-
-	infostr = avfilterinfo();
-	ui.textEdit_ffmpegInfo->insertPlainText("\n<<AVFilter>>\n%s");
-	ui.textEdit_ffmpegInfo->insertPlainText(infostr);
-	free(infostr);
+	char *info;
+	// Get all FFmpeg info 
+	info = ffmpeg_get_info();
+	// Show FFmpeg info
+	ui.textEdit_ffmpegInfo->insertPlainText(info);
+	free(info);
 }
 
 void JaysMPlayer::callback_showFile()
@@ -62,7 +43,8 @@ void JaysMPlayer::callback_playMedia()
 	QString filePath = ui.textEdit_showFilePath->toPlainText();
 	// Convert file path result format (QString->Char*)
 	char *strFilePath;
-	strFilePath = filePath.toLatin1().data();
+	QByteArray arrayFilePath = filePath.toLatin1();
+	strFilePath = arrayFilePath.data();
 	// Play select file by SDL
 	sdl_play_yuv(strFilePath);
 }

@@ -14,7 +14,7 @@ struct URLProtocol;
 /**
 * Protocol Support Information
 */
-char * urlprotocolinfo() {
+char * ffmpeg_urlprotocol_info() {
 
 	char *info = (char *)malloc(40000);
 	memset(info, 0, 40000);
@@ -41,7 +41,7 @@ char * urlprotocolinfo() {
 /**
 * AVFormat Support Information
 */
-char * avformatinfo() {
+char * ffmpeg_avformat_info() {
 
 	char *info = (char *)malloc(40000);
 	memset(info, 0, 40000);
@@ -66,7 +66,7 @@ char * avformatinfo() {
 /**
 * AVCodec Support Information
 */
-char * avcodecinfo()
+char * ffmpeg_avcodec_info()
 {
 	char *info = (char *)malloc(40000);
 	memset(info, 0, 40000);
@@ -104,7 +104,7 @@ char * avcodecinfo()
 /**
 * AVFilter Support Information
 */
-char * avfilterinfo()
+char * ffmpeg_avfilter_info()
 {
 	char *info = (char *)malloc(40000);
 	memset(info, 0, 40000);
@@ -123,7 +123,7 @@ char * avfilterinfo()
 /**
 * Configuration Information
 */
-char * configurationinfo()
+char * ffmpeg_configuration_info()
 {
 	char *info = (char *)malloc(40000);
 	memset(info, 0, 40000);
@@ -133,4 +133,39 @@ char * configurationinfo()
 	sprintf(info, "%s\n", avcodec_configuration());
 
 	return info;
+}
+
+char * ffmpeg_get_info()
+{
+	char *allInfo = (char *)malloc(200000);
+	memset(allInfo, 0, 200000);
+
+	char *info = NULL;
+	int index;
+	info = ffmpeg_configuration_info();
+	index = sprintf(allInfo, "%s\n", "\n<<Configuration>>\n");
+	index += sprintf(allInfo + index, "%s\n", info);
+	free(info);
+
+	info = ffmpeg_urlprotocol_info();
+	index += sprintf(allInfo + index, "%s\n", "\n<<URLProtocol>>\n");
+	index += sprintf(allInfo + index, "%s\n", info);
+	free(info);
+
+	info = ffmpeg_avformat_info();
+	index += sprintf(allInfo + index, "%s\n", "\n<<AVFormat>>\n");
+	index += sprintf(allInfo + index, "%s\n", info);
+	free(info);
+
+	info = ffmpeg_avfilter_info();
+	index += sprintf(allInfo + index, "%s\n", "\n<<AVFilter>>\n");
+	index += sprintf(allInfo + index, "%s\n", info);
+	free(info);
+
+	info = ffmpeg_avcodec_info();
+	index += sprintf(allInfo + index, "%s\n", "\n<<AVCodec>>\n");
+	index += sprintf(allInfo + index, "%s\n", info);
+	free(info);
+
+	return allInfo;
 }

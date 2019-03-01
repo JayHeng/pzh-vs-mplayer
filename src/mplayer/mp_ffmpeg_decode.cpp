@@ -24,7 +24,8 @@ int ffmpeg_do_decode(mp_decoder_format_t mediaFormat, char *mediaFileIn, char *m
 	AVFrame	*pFrame;
 
 	const int in_buffer_size = 4096;
-	unsigned char in_buffer[in_buffer_size + FF_INPUT_BUFFER_PADDING_SIZE] = { 0 };
+	//unsigned char in_buffer[in_buffer_size + FF_INPUT_BUFFER_PADDING_SIZE] = { 0 };
+	unsigned char in_buffer[in_buffer_size] = { 0 };
 	unsigned char *cur_ptr;
 	int cur_size;
 	AVPacket packet;

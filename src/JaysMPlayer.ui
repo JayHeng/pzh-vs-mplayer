@@ -33,7 +33,7 @@
       <x>30</x>
       <y>40</y>
       <width>541</width>
-      <height>231</height>
+      <height>181</height>
      </rect>
     </property>
    </widget>
@@ -76,7 +76,7 @@
      <string>SDL Action:</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_browseFile">
+   <widget class="QToolButton" name="toolButton_browseFileToPlay">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -89,7 +89,7 @@
      <string>Browse</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_showFilePath">
+   <widget class="QTextEdit" name="textEdit_showFileToPlay">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -98,6 +98,76 @@
       <height>21</height>
      </rect>
     </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_showFileToDecode">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>240</y>
+      <width>271</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_browseFileToDecode">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>240</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_mediaDecode">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>240</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Decode</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_mediaInFormat">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>240</y>
+      <width>81</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="maxVisibleItems">
+     <number>3</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>H.264</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>HEVC</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>MPEG2</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

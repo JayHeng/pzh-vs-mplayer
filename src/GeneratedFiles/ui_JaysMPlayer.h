@@ -32,13 +32,21 @@ public:
     QTextEdit *textEdit_ffmpegInfo;
     QPushButton *pushButton_ffmpegInfo;
     QPushButton *pushButton_mediaPlay;
-    QLabel *label_sdlAction;
+    QLabel *label_sdlPlayer;
     QToolButton *toolButton_browseFileToPlay;
     QTextEdit *textEdit_showFileToPlay;
     QTextEdit *textEdit_showFileToDecode;
     QToolButton *toolButton_browseFileToDecode;
     QPushButton *pushButton_mediaDecode;
     QComboBox *comboBox_mediaInFormat;
+    QLabel *label_ffmpegDecoder;
+    QComboBox *comboBox_pixelFormat;
+    QLabel *label_pixelFormat;
+    QLabel *label_mediaInFormat;
+    QLabel *label_frameWidth;
+    QLabel *label_frameHeight;
+    QTextEdit *textEdit_frameWidth;
+    QTextEdit *textEdit_frameHeight;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -55,16 +63,16 @@ public:
         label_ffmpegInfo->setGeometry(QRect(40, 10, 71, 16));
         textEdit_ffmpegInfo = new QTextEdit(centralWidget);
         textEdit_ffmpegInfo->setObjectName(QString::fromUtf8("textEdit_ffmpegInfo"));
-        textEdit_ffmpegInfo->setGeometry(QRect(30, 40, 541, 181));
+        textEdit_ffmpegInfo->setGeometry(QRect(30, 40, 541, 111));
         pushButton_ffmpegInfo = new QPushButton(centralWidget);
         pushButton_ffmpegInfo->setObjectName(QString::fromUtf8("pushButton_ffmpegInfo"));
         pushButton_ffmpegInfo->setGeometry(QRect(120, 10, 75, 23));
         pushButton_mediaPlay = new QPushButton(centralWidget);
         pushButton_mediaPlay->setObjectName(QString::fromUtf8("pushButton_mediaPlay"));
         pushButton_mediaPlay->setGeometry(QRect(510, 320, 75, 23));
-        label_sdlAction = new QLabel(centralWidget);
-        label_sdlAction->setObjectName(QString::fromUtf8("label_sdlAction"));
-        label_sdlAction->setGeometry(QRect(40, 290, 61, 16));
+        label_sdlPlayer = new QLabel(centralWidget);
+        label_sdlPlayer->setObjectName(QString::fromUtf8("label_sdlPlayer"));
+        label_sdlPlayer->setGeometry(QRect(40, 270, 61, 16));
         toolButton_browseFileToPlay = new QToolButton(centralWidget);
         toolButton_browseFileToPlay->setObjectName(QString::fromUtf8("toolButton_browseFileToPlay"));
         toolButton_browseFileToPlay->setGeometry(QRect(430, 320, 71, 21));
@@ -73,21 +81,48 @@ public:
         textEdit_showFileToPlay->setGeometry(QRect(50, 320, 371, 21));
         textEdit_showFileToDecode = new QTextEdit(centralWidget);
         textEdit_showFileToDecode->setObjectName(QString::fromUtf8("textEdit_showFileToDecode"));
-        textEdit_showFileToDecode->setGeometry(QRect(150, 240, 271, 21));
+        textEdit_showFileToDecode->setGeometry(QRect(50, 220, 371, 21));
         toolButton_browseFileToDecode = new QToolButton(centralWidget);
         toolButton_browseFileToDecode->setObjectName(QString::fromUtf8("toolButton_browseFileToDecode"));
-        toolButton_browseFileToDecode->setGeometry(QRect(430, 240, 71, 21));
+        toolButton_browseFileToDecode->setGeometry(QRect(430, 220, 71, 21));
         pushButton_mediaDecode = new QPushButton(centralWidget);
         pushButton_mediaDecode->setObjectName(QString::fromUtf8("pushButton_mediaDecode"));
-        pushButton_mediaDecode->setGeometry(QRect(510, 240, 75, 23));
+        pushButton_mediaDecode->setGeometry(QRect(510, 220, 75, 23));
         comboBox_mediaInFormat = new QComboBox(centralWidget);
         comboBox_mediaInFormat->addItem(QString());
         comboBox_mediaInFormat->addItem(QString());
         comboBox_mediaInFormat->addItem(QString());
         comboBox_mediaInFormat->setObjectName(QString::fromUtf8("comboBox_mediaInFormat"));
-        comboBox_mediaInFormat->setGeometry(QRect(50, 240, 81, 22));
+        comboBox_mediaInFormat->setGeometry(QRect(130, 190, 71, 22));
         comboBox_mediaInFormat->setEditable(true);
         comboBox_mediaInFormat->setMaxVisibleItems(3);
+        label_ffmpegDecoder = new QLabel(centralWidget);
+        label_ffmpegDecoder->setObjectName(QString::fromUtf8("label_ffmpegDecoder"));
+        label_ffmpegDecoder->setGeometry(QRect(40, 170, 101, 16));
+        comboBox_pixelFormat = new QComboBox(centralWidget);
+        comboBox_pixelFormat->addItem(QString());
+        comboBox_pixelFormat->setObjectName(QString::fromUtf8("comboBox_pixelFormat"));
+        comboBox_pixelFormat->setGeometry(QRect(130, 290, 71, 22));
+        comboBox_pixelFormat->setEditable(true);
+        comboBox_pixelFormat->setMaxVisibleItems(3);
+        label_pixelFormat = new QLabel(centralWidget);
+        label_pixelFormat->setObjectName(QString::fromUtf8("label_pixelFormat"));
+        label_pixelFormat->setGeometry(QRect(60, 290, 71, 16));
+        label_mediaInFormat = new QLabel(centralWidget);
+        label_mediaInFormat->setObjectName(QString::fromUtf8("label_mediaInFormat"));
+        label_mediaInFormat->setGeometry(QRect(50, 190, 71, 16));
+        label_frameWidth = new QLabel(centralWidget);
+        label_frameWidth->setObjectName(QString::fromUtf8("label_frameWidth"));
+        label_frameWidth->setGeometry(QRect(230, 290, 71, 16));
+        label_frameHeight = new QLabel(centralWidget);
+        label_frameHeight->setObjectName(QString::fromUtf8("label_frameHeight"));
+        label_frameHeight->setGeometry(QRect(390, 290, 71, 16));
+        textEdit_frameWidth = new QTextEdit(centralWidget);
+        textEdit_frameWidth->setObjectName(QString::fromUtf8("textEdit_frameWidth"));
+        textEdit_frameWidth->setGeometry(QRect(300, 290, 81, 21));
+        textEdit_frameHeight = new QTextEdit(centralWidget);
+        textEdit_frameHeight->setObjectName(QString::fromUtf8("textEdit_frameHeight"));
+        textEdit_frameHeight->setGeometry(QRect(460, 290, 81, 21));
         JaysMPlayerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(JaysMPlayerClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -103,6 +138,7 @@ public:
         retranslateUi(JaysMPlayerClass);
 
         comboBox_mediaInFormat->setCurrentIndex(0);
+        comboBox_pixelFormat->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(JaysMPlayerClass);
@@ -114,7 +150,7 @@ public:
         label_ffmpegInfo->setText(QApplication::translate("JaysMPlayerClass", "FFmpeg Info:", nullptr));
         pushButton_ffmpegInfo->setText(QApplication::translate("JaysMPlayerClass", "Show", nullptr));
         pushButton_mediaPlay->setText(QApplication::translate("JaysMPlayerClass", "Play", nullptr));
-        label_sdlAction->setText(QApplication::translate("JaysMPlayerClass", "SDL Action:", nullptr));
+        label_sdlPlayer->setText(QApplication::translate("JaysMPlayerClass", "SDL Player:", nullptr));
         toolButton_browseFileToPlay->setText(QApplication::translate("JaysMPlayerClass", "Browse", nullptr));
         toolButton_browseFileToDecode->setText(QApplication::translate("JaysMPlayerClass", "Browse", nullptr));
         pushButton_mediaDecode->setText(QApplication::translate("JaysMPlayerClass", "Decode", nullptr));
@@ -122,6 +158,13 @@ public:
         comboBox_mediaInFormat->setItemText(1, QApplication::translate("JaysMPlayerClass", "HEVC", nullptr));
         comboBox_mediaInFormat->setItemText(2, QApplication::translate("JaysMPlayerClass", "MPEG2", nullptr));
 
+        label_ffmpegDecoder->setText(QApplication::translate("JaysMPlayerClass", "FFmpeg Decoder:", nullptr));
+        comboBox_pixelFormat->setItemText(0, QApplication::translate("JaysMPlayerClass", "YUV420", nullptr));
+
+        label_pixelFormat->setText(QApplication::translate("JaysMPlayerClass", "Pixel Format:", nullptr));
+        label_mediaInFormat->setText(QApplication::translate("JaysMPlayerClass", "Media Format:", nullptr));
+        label_frameWidth->setText(QApplication::translate("JaysMPlayerClass", "Frame Width:", nullptr));
+        label_frameHeight->setText(QApplication::translate("JaysMPlayerClass", "Frame Height:", nullptr));
     } // retranslateUi
 
 };

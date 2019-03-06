@@ -84,7 +84,10 @@ void JaysMPlayer::callback_playMedia()
 	// Convert file path result format (QString->Char*)
 	QByteArray arrayFilePath = filePath.toLatin1();
 	char *strFilePath = arrayFilePath.data();
+    // Get frame size
+	QString frameWidth = ui.textEdit_frameWidth->toPlainText();
+	QString frameHeight = ui.textEdit_frameHeight->toPlainText();
 	// Play media file by SDL
-	sdl_play_yuv(strFilePath);
+	sdl_play_yuv(strFilePath, frameWidth.toInt(), frameHeight.toInt());
 }
 

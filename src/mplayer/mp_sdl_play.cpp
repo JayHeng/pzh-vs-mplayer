@@ -9,9 +9,10 @@ extern "C"
 const int bpp = 12;
 
 int screen_w = 500, screen_h = 500;
-const int pixel_w = 320, pixel_h = 180;
+int pixel_w = 320, pixel_h = 180;
+const int max_pixel_w = 500, max_pixel_h = 500;
 
-unsigned char buffer[pixel_w*pixel_h*bpp / 8];
+unsigned char buffer[max_pixel_w*max_pixel_h*bpp / 8];
 
 
 //Refresh Event
@@ -38,8 +39,18 @@ int refresh_video(void *opaque) {
 	return 0;
 }
 
-int sdl_play_yuv(char *mediaFileIn)
+int sdl_play_yuv(char *mediaFileIn, int frameWidth, int frameHeight)
 {
+	if ((frameWidth > max_pixel_w) || (frameHeight > max_pixel_h))
+	{
+		return -1;
+	}
+	else
+	{
+		pixel_w = frameWidth;
+		pixel_h = frameHeight;
+	}
+
 	if (SDL_Init(SDL_INIT_VIDEO)) {
 		printf("Could not initialize SDL - %s\n", SDL_GetError());
 		return -1;

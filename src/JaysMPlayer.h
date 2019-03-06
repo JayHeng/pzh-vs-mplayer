@@ -16,8 +16,8 @@ private:
 
 private slots:
 	void callback_showMsg();
-	void callback_showFileToDecode();
+	void callback_showMediaFile();
 	void callback_decodeMedia();
-	void callback_showFileToPlay();
-	void callback_playMedia();
+	void callback_showVideoFile();
+	void callback_playVideo();
 };

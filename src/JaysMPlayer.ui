@@ -33,7 +33,7 @@
       <x>30</x>
       <y>40</y>
       <width>541</width>
-      <height>111</height>
+      <height>91</height>
      </rect>
     </property>
    </widget>
@@ -50,11 +50,11 @@
      <string>Show</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_mediaPlay">
+   <widget class="QPushButton" name="pushButton_playVideo">
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>320</y>
+      <y>270</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -67,7 +67,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>270</y>
+      <y>220</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -76,11 +76,11 @@
      <string>SDL Player:</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_browseFileToPlay">
+   <widget class="QToolButton" name="toolButton_browseVideoFile">
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>320</y>
+      <y>270</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -89,31 +89,31 @@
      <string>Browse</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_showFileToPlay">
+   <widget class="QTextEdit" name="textEdit_showVideoFile">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>320</y>
+      <y>270</y>
       <width>371</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_showFileToDecode">
+   <widget class="QTextEdit" name="textEdit_showMediaFile">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>220</y>
+      <y>190</y>
       <width>371</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_browseFileToDecode">
+   <widget class="QToolButton" name="toolButton_browseMediaFile">
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>220</y>
+      <y>190</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -122,11 +122,11 @@
      <string>Browse</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_mediaDecode">
+   <widget class="QPushButton" name="pushButton_decodeMedia">
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>220</y>
+      <y>190</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -139,7 +139,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>190</y>
+      <y>160</y>
       <width>71</width>
       <height>22</height>
      </rect>
@@ -173,7 +173,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>170</y>
+      <y>140</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -186,7 +186,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>290</y>
+      <y>240</y>
       <width>71</width>
       <height>22</height>
      </rect>
@@ -210,7 +210,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>290</y>
+      <y>240</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -223,7 +223,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>190</y>
+      <y>160</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -236,7 +236,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>290</y>
+      <y>240</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -249,7 +249,7 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>290</y>
+      <y>240</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -262,7 +262,7 @@
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>290</y>
+      <y>240</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -272,10 +272,33 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>290</y>
+      <y>240</y>
       <width>81</width>
       <height>21</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_showAudioFile">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>320</y>
+      <width>371</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_browseAudioFile">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>320</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse</string>
     </property>
    </widget>
   </widget>

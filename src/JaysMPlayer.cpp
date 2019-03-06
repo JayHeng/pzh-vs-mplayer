@@ -10,10 +10,10 @@ JaysMPlayer::JaysMPlayer(QWidget *parent)
 {
 	ui.setupUi(this);
 	connect(ui.pushButton_ffmpegInfo, SIGNAL(clicked(bool)), this, SLOT(callback_showMsg()));
-	connect(ui.toolButton_browseFileToDecode, SIGNAL(clicked(bool)), this, SLOT(callback_showFileToDecode()));
-	connect(ui.pushButton_mediaDecode, SIGNAL(clicked(bool)), this, SLOT(callback_decodeMedia()));
-	connect(ui.toolButton_browseFileToPlay, SIGNAL(clicked(bool)), this, SLOT(callback_showFileToPlay()));
-	connect(ui.pushButton_mediaPlay, SIGNAL(clicked(bool)), this, SLOT(callback_playMedia()));
+	connect(ui.toolButton_browseMediaFile, SIGNAL(clicked(bool)), this, SLOT(callback_showMediaFile()));
+	connect(ui.pushButton_decodeMedia, SIGNAL(clicked(bool)), this, SLOT(callback_decodeMedia()));
+	connect(ui.toolButton_browseVideoFile, SIGNAL(clicked(bool)), this, SLOT(callback_showVideoFile()));
+	connect(ui.pushButton_playVideo, SIGNAL(clicked(bool)), this, SLOT(callback_playVideo()));
 }
 
 
@@ -32,12 +32,12 @@ void JaysMPlayer::callback_showMsg()
 	free(info);
 }
 
-void JaysMPlayer::callback_showFileToDecode()
+void JaysMPlayer::callback_showMediaFile()
 {
 	// Popup dialog to select file
 	QString filePath = QDir::toNativeSeparators(QFileDialog::getOpenFileName(this, tr("Browse File"), QDir::currentPath()));
 	// Show selected file path
-	ui.textEdit_showFileToDecode->setText(filePath);
+	ui.textEdit_showMediaFile->setText(filePath);
 }
 
 void JaysMPlayer::callback_decodeMedia()
@@ -58,29 +58,29 @@ void JaysMPlayer::callback_decodeMedia()
 		format = kMpDecoderFormat_MPEG2;
 	}
 	// Get media file to decode
-	QString infilePath = ui.textEdit_showFileToDecode->toPlainText();
+	QString infilePath = ui.textEdit_showMediaFile->toPlainText();
 	QByteArray arrayInfilePath = infilePath.toLatin1();
 	char *strInfilePath = arrayInfilePath.data();
 	// Get out file path
-	QString outfilePath = ui.textEdit_showFileToPlay->toPlainText();
+	QString outfilePath = ui.textEdit_showVideoFile->toPlainText();
 	QByteArray arrayOutfilePath = outfilePath.toLatin1();
 	char *strOutfilePath = arrayOutfilePath.data();
 	// Start to decode
 	ffmpeg_do_decode(format, strInfilePath, strOutfilePath);
 }
 
-void JaysMPlayer::callback_showFileToPlay()
+void JaysMPlayer::callback_showVideoFile()
 {
 	// Popup dialog to select file
 	QString filePath = QDir::toNativeSeparators(QFileDialog::getOpenFileName(this, tr("Browse File"), QDir::currentPath()));
 	// Show selected file path
-	ui.textEdit_showFileToPlay->setText(filePath);
+	ui.textEdit_showVideoFile->setText(filePath);
 }
 
-void JaysMPlayer::callback_playMedia()
+void JaysMPlayer::callback_playVideo()
 {
 	// Get media file to play
-	QString filePath = ui.textEdit_showFileToPlay->toPlainText();
+	QString filePath = ui.textEdit_showVideoFile->toPlainText();
 	// Convert file path result format (QString->Char*)
 	QByteArray arrayFilePath = filePath.toLatin1();
 	char *strFilePath = arrayFilePath.data();

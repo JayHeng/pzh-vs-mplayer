@@ -20,4 +20,5 @@ private slots:
 	void callback_decodeMedia();
 	void callback_showVideoFile();
 	void callback_playVideo();
+	void callback_showAudioFile();
 };

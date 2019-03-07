@@ -118,6 +118,7 @@
     <ClCompile Include="JaysMPlayer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mplayer\mp_ffmpeg_decode.cpp" />
+    <ClCompile Include="mplayer\mp_ffmpeg_decode2.cpp" />
     <ClCompile Include="mplayer\mp_ffmpeg_info.cpp" />
     <ClCompile Include="mplayer\mp_sdl_play.cpp" />
   </ItemGroup>
@@ -132,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mplayer\mp_ffmpeg_decode.h" />
+    <ClInclude Include="mplayer\mp_ffmpeg_decode2.h" />
     <ClInclude Include="mplayer\mp_ffmpeg_info.h" />
     <ClInclude Include="mplayer\mp_sdl_play.h" />
   </ItemGroup>

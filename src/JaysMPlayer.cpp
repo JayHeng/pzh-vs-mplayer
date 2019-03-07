@@ -3,6 +3,7 @@
 #include "QFileDialog"
 #include "mp_ffmpeg_info.h"
 #include "mp_ffmpeg_decode.h"
+#include "mp_ffmpeg_decode2.h"
 #include "mp_sdl_play.h"
 
 JaysMPlayer::JaysMPlayer(QWidget *parent)
@@ -14,6 +15,7 @@ JaysMPlayer::JaysMPlayer(QWidget *parent)
 	connect(ui.pushButton_decodeMedia, SIGNAL(clicked(bool)), this, SLOT(callback_decodeMedia()));
 	connect(ui.toolButton_browseVideoFile, SIGNAL(clicked(bool)), this, SLOT(callback_showVideoFile()));
 	connect(ui.pushButton_playVideo, SIGNAL(clicked(bool)), this, SLOT(callback_playVideo()));
+	connect(ui.toolButton_browseAudioFile, SIGNAL(clicked(bool)), this, SLOT(callback_showAudioFile()));
 }
 
 
@@ -61,12 +63,17 @@ void JaysMPlayer::callback_decodeMedia()
 	QString infilePath = ui.textEdit_showMediaFile->toPlainText();
 	QByteArray arrayInfilePath = infilePath.toLatin1();
 	char *strInfilePath = arrayInfilePath.data();
-	// Get out file path
-	QString outfilePath = ui.textEdit_showVideoFile->toPlainText();
-	QByteArray arrayOutfilePath = outfilePath.toLatin1();
-	char *strOutfilePath = arrayOutfilePath.data();
+	// Get video out file path
+	QString voutfilePath = ui.textEdit_showVideoFile->toPlainText();
+	QByteArray arrayVoutfilePath = voutfilePath.toLatin1();
+	char *strVoutfilePath = arrayVoutfilePath.data();
+	// Get audio out file path
+	QString aoutfilePath = ui.textEdit_showAudioFile->toPlainText();
+	QByteArray arrayAoutfilePath = aoutfilePath.toLatin1();
+	char *strAoutfilePath = arrayAoutfilePath.data();
 	// Start to decode
-	ffmpeg_do_decode(format, strInfilePath, strOutfilePath);
+	//ffmpeg_do_decode(format, strInfilePath, strVoutfilePath);
+	ffmpeg_do_decode2(format, strInfilePath, strVoutfilePath, strAoutfilePath);
 }
 
 void JaysMPlayer::callback_showVideoFile()
@@ -89,5 +96,13 @@ void JaysMPlayer::callback_playVideo()
 	QString frameHeight = ui.textEdit_frameHeight->toPlainText();
 	// Play media file by SDL
 	sdl_play_yuv(strFilePath, frameWidth.toInt(), frameHeight.toInt());
+}
+
+void JaysMPlayer::callback_showAudioFile()
+{
+	// Popup dialog to select file
+	QString filePath = QDir::toNativeSeparators(QFileDialog::getOpenFileName(this, tr("Browse File"), QDir::currentPath()));
+	// Show selected file path
+	ui.textEdit_showAudioFile->setText(filePath);
 }
 

@@ -158,14 +158,14 @@
     <Library Include="middleware\sdl\lib\x64\SDL2main.lib" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="middleware\ffmpeg\lib\avcodec-58.def" />
-    <None Include="middleware\ffmpeg\lib\avdevice-58.def" />
-    <None Include="middleware\ffmpeg\lib\avfilter-7.def" />
-    <None Include="middleware\ffmpeg\lib\avformat-58.def" />
-    <None Include="middleware\ffmpeg\lib\avutil-56.def" />
-    <None Include="middleware\ffmpeg\lib\postproc-55.def" />
-    <None Include="middleware\ffmpeg\lib\swresample-3.def" />
-    <None Include="middleware\ffmpeg\lib\swscale-5.def" />
+    <None Include="middleware\ffmpeg\lib\avcodec-57.def" />
+    <None Include="middleware\ffmpeg\lib\avdevice-57.def" />
+    <None Include="middleware\ffmpeg\lib\avfilter-6.def" />
+    <None Include="middleware\ffmpeg\lib\avformat-57.def" />
+    <None Include="middleware\ffmpeg\lib\avutil-55.def" />
+    <None Include="middleware\ffmpeg\lib\postproc-54.def" />
+    <None Include="middleware\ffmpeg\lib\swresample-2.def" />
+    <None Include="middleware\ffmpeg\lib\swscale-4.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

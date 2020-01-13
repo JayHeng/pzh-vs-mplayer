@@ -13,6 +13,7 @@ JaysMPlayer::JaysMPlayer(QWidget *parent)
 	connect(ui.pushButton_ffmpegInfo, SIGNAL(clicked(bool)), this, SLOT(callback_showMsg()));
 	connect(ui.toolButton_browseMediaFile, SIGNAL(clicked(bool)), this, SLOT(callback_showMediaFile()));
 	connect(ui.pushButton_decodeMedia, SIGNAL(clicked(bool)), this, SLOT(callback_decodeMedia()));
+	connect(ui.pushButton_encodeMedia, SIGNAL(clicked(bool)), this, SLOT(callback_encodeMedia()));
 	connect(ui.toolButton_browseVideoFile, SIGNAL(clicked(bool)), this, SLOT(callback_showVideoFile()));
 	connect(ui.pushButton_playVideo, SIGNAL(clicked(bool)), this, SLOT(callback_playVideo()));
 	connect(ui.toolButton_browseAudioFile, SIGNAL(clicked(bool)), this, SLOT(callback_showAudioFile()));
@@ -45,7 +46,7 @@ void JaysMPlayer::callback_showMediaFile()
 void JaysMPlayer::callback_decodeMedia()
 {
 	// Get media format
-	QString mediaFormat = ui.comboBox_mediaInFormat->currentText();
+	QString mediaFormat = ui.comboBox_encMediaInFormat->currentText();
 	mp_decoder_format_t format;
 	if (mediaFormat == "H.264")
 	{
@@ -72,8 +73,13 @@ void JaysMPlayer::callback_decodeMedia()
 	QByteArray arrayAoutfilePath = aoutfilePath.toLatin1();
 	char *strAoutfilePath = arrayAoutfilePath.data();
 	// Start to decode
-	//ffmpeg_do_decode(format, strInfilePath, strVoutfilePath);
-	ffmpeg_do_decode2(format, strInfilePath, strVoutfilePath, strAoutfilePath);
+	ffmpeg_do_decode(format, strInfilePath, strVoutfilePath);
+	//ffmpeg_do_decode2(format, strInfilePath, strVoutfilePath, strAoutfilePath);
+}
+
+void JaysMPlayer::callback_encodeMedia()
+{
+	
 }
 
 void JaysMPlayer::callback_showVideoFile()

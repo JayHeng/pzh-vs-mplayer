@@ -38,17 +38,21 @@ public:
     QTextEdit *textEdit_showMediaFile;
     QToolButton *toolButton_browseMediaFile;
     QPushButton *pushButton_decodeMedia;
-    QComboBox *comboBox_mediaInFormat;
+    QComboBox *comboBox_decMediaInFormat;
     QLabel *label_ffmpegDecoder;
     QComboBox *comboBox_pixelFormat;
     QLabel *label_pixelFormat;
-    QLabel *label_mediaInFormat;
+    QLabel *label_decMediaInFormat;
     QLabel *label_frameWidth;
     QLabel *label_frameHeight;
     QTextEdit *textEdit_frameWidth;
     QTextEdit *textEdit_frameHeight;
     QTextEdit *textEdit_showAudioFile;
     QToolButton *toolButton_browseAudioFile;
+    QLabel *label_ffmpegEncoder;
+    QLabel *label_encMediaInFormat;
+    QPushButton *pushButton_encodeMedia;
+    QComboBox *comboBox_encMediaInFormat;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -57,7 +61,7 @@ public:
     {
         if (JaysMPlayerClass->objectName().isEmpty())
             JaysMPlayerClass->setObjectName(QString::fromUtf8("JaysMPlayerClass"));
-        JaysMPlayerClass->resize(600, 400);
+        JaysMPlayerClass->resize(626, 400);
         centralWidget = new QWidget(JaysMPlayerClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         label_ffmpegInfo = new QLabel(centralWidget);
@@ -65,7 +69,7 @@ public:
         label_ffmpegInfo->setGeometry(QRect(40, 10, 71, 16));
         textEdit_ffmpegInfo = new QTextEdit(centralWidget);
         textEdit_ffmpegInfo->setObjectName(QString::fromUtf8("textEdit_ffmpegInfo"));
-        textEdit_ffmpegInfo->setGeometry(QRect(30, 40, 541, 91));
+        textEdit_ffmpegInfo->setGeometry(QRect(30, 40, 571, 91));
         pushButton_ffmpegInfo = new QPushButton(centralWidget);
         pushButton_ffmpegInfo->setObjectName(QString::fromUtf8("pushButton_ffmpegInfo"));
         pushButton_ffmpegInfo->setGeometry(QRect(120, 10, 75, 23));
@@ -89,15 +93,15 @@ public:
         toolButton_browseMediaFile->setGeometry(QRect(430, 190, 71, 21));
         pushButton_decodeMedia = new QPushButton(centralWidget);
         pushButton_decodeMedia->setObjectName(QString::fromUtf8("pushButton_decodeMedia"));
-        pushButton_decodeMedia->setGeometry(QRect(510, 190, 75, 23));
-        comboBox_mediaInFormat = new QComboBox(centralWidget);
-        comboBox_mediaInFormat->addItem(QString());
-        comboBox_mediaInFormat->addItem(QString());
-        comboBox_mediaInFormat->addItem(QString());
-        comboBox_mediaInFormat->setObjectName(QString::fromUtf8("comboBox_mediaInFormat"));
-        comboBox_mediaInFormat->setGeometry(QRect(130, 160, 71, 22));
-        comboBox_mediaInFormat->setEditable(true);
-        comboBox_mediaInFormat->setMaxVisibleItems(3);
+        pushButton_decodeMedia->setGeometry(QRect(210, 160, 75, 23));
+        comboBox_decMediaInFormat = new QComboBox(centralWidget);
+        comboBox_decMediaInFormat->addItem(QString());
+        comboBox_decMediaInFormat->addItem(QString());
+        comboBox_decMediaInFormat->addItem(QString());
+        comboBox_decMediaInFormat->setObjectName(QString::fromUtf8("comboBox_decMediaInFormat"));
+        comboBox_decMediaInFormat->setGeometry(QRect(130, 160, 71, 22));
+        comboBox_decMediaInFormat->setEditable(true);
+        comboBox_decMediaInFormat->setMaxVisibleItems(3);
         label_ffmpegDecoder = new QLabel(centralWidget);
         label_ffmpegDecoder->setObjectName(QString::fromUtf8("label_ffmpegDecoder"));
         label_ffmpegDecoder->setGeometry(QRect(40, 140, 101, 16));
@@ -110,9 +114,9 @@ public:
         label_pixelFormat = new QLabel(centralWidget);
         label_pixelFormat->setObjectName(QString::fromUtf8("label_pixelFormat"));
         label_pixelFormat->setGeometry(QRect(60, 240, 71, 16));
-        label_mediaInFormat = new QLabel(centralWidget);
-        label_mediaInFormat->setObjectName(QString::fromUtf8("label_mediaInFormat"));
-        label_mediaInFormat->setGeometry(QRect(50, 160, 71, 16));
+        label_decMediaInFormat = new QLabel(centralWidget);
+        label_decMediaInFormat->setObjectName(QString::fromUtf8("label_decMediaInFormat"));
+        label_decMediaInFormat->setGeometry(QRect(50, 160, 71, 16));
         label_frameWidth = new QLabel(centralWidget);
         label_frameWidth->setObjectName(QString::fromUtf8("label_frameWidth"));
         label_frameWidth->setGeometry(QRect(230, 240, 71, 16));
@@ -131,10 +135,26 @@ public:
         toolButton_browseAudioFile = new QToolButton(centralWidget);
         toolButton_browseAudioFile->setObjectName(QString::fromUtf8("toolButton_browseAudioFile"));
         toolButton_browseAudioFile->setGeometry(QRect(430, 320, 71, 21));
+        label_ffmpegEncoder = new QLabel(centralWidget);
+        label_ffmpegEncoder->setObjectName(QString::fromUtf8("label_ffmpegEncoder"));
+        label_ffmpegEncoder->setGeometry(QRect(330, 140, 101, 16));
+        label_encMediaInFormat = new QLabel(centralWidget);
+        label_encMediaInFormat->setObjectName(QString::fromUtf8("label_encMediaInFormat"));
+        label_encMediaInFormat->setGeometry(QRect(340, 160, 71, 16));
+        pushButton_encodeMedia = new QPushButton(centralWidget);
+        pushButton_encodeMedia->setObjectName(QString::fromUtf8("pushButton_encodeMedia"));
+        pushButton_encodeMedia->setGeometry(QRect(500, 160, 75, 23));
+        comboBox_encMediaInFormat = new QComboBox(centralWidget);
+        comboBox_encMediaInFormat->addItem(QString());
+        comboBox_encMediaInFormat->addItem(QString());
+        comboBox_encMediaInFormat->setObjectName(QString::fromUtf8("comboBox_encMediaInFormat"));
+        comboBox_encMediaInFormat->setGeometry(QRect(420, 160, 71, 22));
+        comboBox_encMediaInFormat->setEditable(true);
+        comboBox_encMediaInFormat->setMaxVisibleItems(3);
         JaysMPlayerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(JaysMPlayerClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 21));
+        menuBar->setGeometry(QRect(0, 0, 626, 21));
         JaysMPlayerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(JaysMPlayerClass);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -145,8 +165,9 @@ public:
 
         retranslateUi(JaysMPlayerClass);
 
-        comboBox_mediaInFormat->setCurrentIndex(0);
+        comboBox_decMediaInFormat->setCurrentIndex(0);
         comboBox_pixelFormat->setCurrentIndex(0);
+        comboBox_encMediaInFormat->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(JaysMPlayerClass);
@@ -162,18 +183,24 @@ public:
         toolButton_browseVideoFile->setText(QApplication::translate("JaysMPlayerClass", "Browse", nullptr));
         toolButton_browseMediaFile->setText(QApplication::translate("JaysMPlayerClass", "Browse", nullptr));
         pushButton_decodeMedia->setText(QApplication::translate("JaysMPlayerClass", "Decode", nullptr));
-        comboBox_mediaInFormat->setItemText(0, QApplication::translate("JaysMPlayerClass", "H.264", nullptr));
-        comboBox_mediaInFormat->setItemText(1, QApplication::translate("JaysMPlayerClass", "HEVC", nullptr));
-        comboBox_mediaInFormat->setItemText(2, QApplication::translate("JaysMPlayerClass", "MPEG2", nullptr));
+        comboBox_decMediaInFormat->setItemText(0, QApplication::translate("JaysMPlayerClass", "H.264", nullptr));
+        comboBox_decMediaInFormat->setItemText(1, QApplication::translate("JaysMPlayerClass", "HEVC", nullptr));
+        comboBox_decMediaInFormat->setItemText(2, QApplication::translate("JaysMPlayerClass", "MPEG2", nullptr));
 
         label_ffmpegDecoder->setText(QApplication::translate("JaysMPlayerClass", "FFmpeg Decoder:", nullptr));
         comboBox_pixelFormat->setItemText(0, QApplication::translate("JaysMPlayerClass", "YUV420", nullptr));
 
         label_pixelFormat->setText(QApplication::translate("JaysMPlayerClass", "Pixel Format:", nullptr));
-        label_mediaInFormat->setText(QApplication::translate("JaysMPlayerClass", "Media Format:", nullptr));
+        label_decMediaInFormat->setText(QApplication::translate("JaysMPlayerClass", "Media Format:", nullptr));
         label_frameWidth->setText(QApplication::translate("JaysMPlayerClass", "Frame Width:", nullptr));
         label_frameHeight->setText(QApplication::translate("JaysMPlayerClass", "Frame Height:", nullptr));
         toolButton_browseAudioFile->setText(QApplication::translate("JaysMPlayerClass", "Browse", nullptr));
+        label_ffmpegEncoder->setText(QApplication::translate("JaysMPlayerClass", "FFmpeg Encoder:", nullptr));
+        label_encMediaInFormat->setText(QApplication::translate("JaysMPlayerClass", "Media Format:", nullptr));
+        pushButton_encodeMedia->setText(QApplication::translate("JaysMPlayerClass", "Encode", nullptr));
+        comboBox_encMediaInFormat->setItemText(0, QApplication::translate("JaysMPlayerClass", "YUV", nullptr));
+        comboBox_encMediaInFormat->setItemText(1, QApplication::translate("JaysMPlayerClass", "RGB", nullptr));
+
     } // retranslateUi
 
 };

@@ -4,6 +4,7 @@
 #include "mp_ffmpeg_info.h"
 #include "mp_ffmpeg_decode.h"
 #include "mp_ffmpeg_decode2.h"
+#include "mp_ffmpeg_encode.h"
 #include "mp_sdl_play.h"
 
 JaysMPlayer::JaysMPlayer(QWidget *parent)
@@ -46,7 +47,7 @@ void JaysMPlayer::callback_showMediaFile()
 void JaysMPlayer::callback_decodeMedia()
 {
 	// Get media format
-	QString mediaFormat = ui.comboBox_encMediaInFormat->currentText();
+	QString mediaFormat = ui.comboBox_decMediaInFormat->currentText();
 	mp_decoder_format_t format;
 	if (mediaFormat == "H.264")
 	{
@@ -79,7 +80,27 @@ void JaysMPlayer::callback_decodeMedia()
 
 void JaysMPlayer::callback_encodeMedia()
 {
-	
+	// Get media format
+	QString mediaFormat = ui.comboBox_encMediaInFormat->currentText();
+	mp_encoder_format_t format;
+	if (mediaFormat == "H.264")
+	{
+		format = kMpEncoderFormat_H264;
+	}
+	else if (mediaFormat == "HEVC")
+	{
+		format = kMpEncoderFormat_HEVC;
+	}
+	// Get media file to decode
+	QString infilePath = ui.textEdit_showMediaFile->toPlainText();
+	QByteArray arrayInfilePath = infilePath.toLatin1();
+	char *strInfilePath = arrayInfilePath.data();
+	// Get video out file path
+	QString voutfilePath = ui.textEdit_showVideoFile->toPlainText();
+	QByteArray arrayVoutfilePath = voutfilePath.toLatin1();
+	char *strVoutfilePath = arrayVoutfilePath.data();
+	// Start to encode
+	ffmpeg_do_encode(format, strInfilePath, strVoutfilePath);
 }
 
 void JaysMPlayer::callback_showVideoFile()

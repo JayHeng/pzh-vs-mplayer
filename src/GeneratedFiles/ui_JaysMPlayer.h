@@ -198,8 +198,8 @@ public:
         label_ffmpegEncoder->setText(QApplication::translate("JaysMPlayerClass", "FFmpeg Encoder:", nullptr));
         label_encMediaInFormat->setText(QApplication::translate("JaysMPlayerClass", "Media Format:", nullptr));
         pushButton_encodeMedia->setText(QApplication::translate("JaysMPlayerClass", "Encode", nullptr));
-        comboBox_encMediaInFormat->setItemText(0, QApplication::translate("JaysMPlayerClass", "YUV", nullptr));
-        comboBox_encMediaInFormat->setItemText(1, QApplication::translate("JaysMPlayerClass", "RGB", nullptr));
+        comboBox_encMediaInFormat->setItemText(0, QApplication::translate("JaysMPlayerClass", "H.264", nullptr));
+        comboBox_encMediaInFormat->setItemText(1, QApplication::translate("JaysMPlayerClass", "HEVC", nullptr));
 
     } // retranslateUi
 

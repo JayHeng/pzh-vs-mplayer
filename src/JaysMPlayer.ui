@@ -360,12 +360,12 @@
     </property>
     <item>
      <property name="text">
-      <string>YUV</string>
+      <string>H.264</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>RGB</string>
+      <string>HEVC</string>
      </property>
     </item>
    </widget>
